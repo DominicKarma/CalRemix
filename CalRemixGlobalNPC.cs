@@ -1,82 +1,84 @@
-using Terraria;
-using Terraria.ModLoader;
-using CalamityMod.NPCs.TownNPCs;
-using CalRemix.Items.Materials;
-using CalRemix.Tiles;
-using Microsoft.Xna.Framework;
-using CalamityMod.NPCs.DesertScourge;
 using CalamityMod;
-using CalamityMod.Items.SummonItems;
-using CalamityMod.NPCs.Abyss;
-using CalamityMod.NPCs.AcidRain;
-using CalamityMod.NPCs.PrimordialWyrm;
-using CalamityMod.NPCs.AstrumAureus;
-using CalamityMod.NPCs.NormalNPCs;
-using CalamityMod.NPCs.Ravager;
-using CalamityMod.NPCs.SlimeGod;
-using CalamityMod.NPCs.SupremeCalamitas;
-using CalamityMod.NPCs.SulphurousSea;
-using CalRemix.NPCs;
-using CalRemix.NPCs.Minibosses;
-using CalRemix.NPCs.Bosses.Wulfwyrm;
-using CalRemix.Items;
-using CalRemix.Items.Accessories;
-using CalamityMod.Items.Materials;
-using System.Collections.Generic;
-using CalRemix.Projectiles.Accessories;
-using CalRemix.Projectiles.Weapons;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.ID;
-using Terraria.ModLoader.IO;
-using CalamityMod.NPCs.Providence;
-using CalamityMod.Events;
-using System;
-using System.IO;
-using Terraria.Chat;
-using Terraria.Localization;
-using CalamityMod.NPCs.Crabulon;
-using CalRemix.Items.Weapons;
-using CalamityMod.Items.Potions;
-using CalamityMod.NPCs.Yharon;
-using CalamityMod.NPCs.ProfanedGuardians;
-using CalamityMod.Projectiles.Boss;
-using CalamityMod.World;
-using System.Reflection;
-using CalamityMod.Sounds;
-using CalRemix.Items.Potions;
-using CalRemix.Items.Potions.Recovery;
-using CalamityMod.NPCs.Astral;
-using CalamityMod.NPCs.SunkenSea;
-using CalamityMod.NPCs.PlaguebringerGoliath;
-using CalamityMod.Items.Accessories;
-using CalamityMod.Tiles.Ores;
 using CalamityMod.CalPlayer;
-using CalamityMod.NPCs.Leviathan;
-using CalamityMod.NPCs.HiveMind;
+using CalamityMod.Events;
+using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Armor.Fearmonger;
-using CalamityMod.NPCs.Perforator;
-using Terraria.DataStructures;
-using CalRemix.UI;
+using CalamityMod.Items.Materials;
+using CalamityMod.Items.Potions;
+using CalamityMod.Items.Potions.Alcohol;
+using CalamityMod.Items.SummonItems;
+using CalamityMod.Items.Weapons.Magic;
 using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Items.Weapons.Ranged;
-using CalamityMod.Items.Weapons.Magic;
-using CalamityMod.Items.Weapons.Summon;
 using CalamityMod.Items.Weapons.Rogue;
-using CalamityMod.NPCs.GreatSandShark;
+using CalamityMod.Items.Weapons.Summon;
+using CalamityMod.NPCs.Abyss;
+using CalamityMod.NPCs.AcidRain;
+using CalamityMod.NPCs.Astral;
+using CalamityMod.NPCs.AstrumAureus;
 using CalamityMod.NPCs.AstrumDeus;
+using CalamityMod.NPCs.Crabulon;
 using CalamityMod.NPCs.Crags;
-using CalRemix.NPCs.TownNPCs;
-using System.Threading;
-using CalRemix.Items.Placeables;
-using CalRemix.Buffs;
+using CalamityMod.NPCs.DesertScourge;
 using CalamityMod.NPCs.DevourerofGods;
-using Terraria.Audio;
-using CalRemix.NPCs.PandemicPanic;
-using CalRemix.World;
-using CalRemix.UI.Anomaly109;
+using CalamityMod.NPCs.GreatSandShark;
+using CalamityMod.NPCs.HiveMind;
+using CalamityMod.NPCs.Leviathan;
+using CalamityMod.NPCs.NormalNPCs;
+using CalamityMod.NPCs.OldDuke;
+using CalamityMod.NPCs.Perforator;
+using CalamityMod.NPCs.PlaguebringerGoliath;
+using CalamityMod.NPCs.PrimordialWyrm;
+using CalamityMod.NPCs.ProfanedGuardians;
+using CalamityMod.NPCs.Providence;
+using CalamityMod.NPCs.Ravager;
+using CalamityMod.NPCs.SlimeGod;
+using CalamityMod.NPCs.SulphurousSea;
+using CalamityMod.NPCs.SunkenSea;
+using CalamityMod.NPCs.SupremeCalamitas;
+using CalamityMod.NPCs.TownNPCs;
+using CalamityMod.NPCs.Yharon;
+using CalamityMod.Projectiles.Boss;
+using CalamityMod.Sounds;
+using CalamityMod.Tiles.Ores;
+using CalamityMod.World;
+using CalRemix.Buffs;
+using CalRemix.Items.Accessories;
 using CalRemix.Items.Ammo;
-using CalamityMod.Items.Potions.Alcohol;
+using CalRemix.Items.Materials;
 using CalRemix.Items.Pets;
+using CalRemix.Items.Placeables;
+using CalRemix.Items.Potions;
+using CalRemix.Items.Potions.Recovery;
+using CalRemix.Items.Weapons;
+using CalRemix.NPCs;
+using CalRemix.NPCs.Bosses.OldDuke;
+using CalRemix.NPCs.Bosses.Wulfwyrm;
+using CalRemix.NPCs.Minibosses;
+using CalRemix.NPCs.PandemicPanic;
+using CalRemix.NPCs.TownNPCs;
+using CalRemix.Projectiles.Accessories;
+using CalRemix.Projectiles.Weapons;
+using CalRemix.Tiles;
+using CalRemix.UI;
+using CalRemix.UI.Anomaly109;
+using CalRemix.World;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using System.Threading;
+using Terraria;
+using Terraria.Audio;
+using Terraria.Chat;
+using Terraria.DataStructures;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace CalRemix
 {
@@ -98,8 +100,9 @@ namespace CalRemix
         public float[] storedCalAI = { 0f, 0f, 0f, 0f };
         public float[] storedLocalAI = { 0f, 0f, 0f, 0f };
         public float[] storedGreenAI = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        public OldDukeReworkProvider OldDukeReworker;
         public static HelperMessage CystMessage;
-        public float[] GreenAI = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, 0];
+        public float[] GreenAI = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         public override bool InstancePerEntity => true;
 
         public List<int> BossSlimes = new List<int>
@@ -145,6 +148,12 @@ namespace CalRemix
             On_NPC.SpawnOnPlayer += KillDungeonGuardians;
             On.CalamityMod.CalamityUtils.SpawnOldDuke += NoOldDuke;
             On.CalamityMod.NPCs.CalamityGlobalNPC.OldDukeSpawn += NoOldDuke2;
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            if (npc.type == ModContent.NPCType<OldDuke>())
+                OldDukeReworker = new(npc);
         }
 
         public override void SetStaticDefaults()
@@ -514,6 +523,13 @@ namespace CalRemix
                     }
                 }
             }
+
+            if (npc.type == ModContent.NPCType<OldDuke>())
+            {
+                OldDukeReworker?.AI();
+                return false;
+            }
+
             return true;
         }
         public override void AI(NPC npc)
@@ -669,6 +685,18 @@ namespace CalRemix
                 npc.frameCounter += 2;
             }
         }
+
+        public override bool PreDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            if (npc.type == ModContent.NPCType<OldDuke>())
+            {
+                OldDukeReworker?.Render(screenPos, drawColor);
+                return false;
+            }
+
+            return true;
+        }
+
         public override void ModifyShop(NPCShop shop)
         {
             if (shop.NpcType == NPCID.Merchant)
@@ -902,7 +930,7 @@ namespace CalRemix
             if (npc.type == NPCID.Clinger)
             {
                 LeadingConditionRule postPolter = new LeadingConditionRule(new Conditions.IsExpert());
-                postPolter.Add(ModContent.ItemType<CursedSpear>(), new Fraction(2, 30) , hideLootReport: !Main.expertMode);
+                postPolter.Add(ModContent.ItemType<CursedSpear>(), new Fraction(2, 30), hideLootReport: !Main.expertMode);
                 postPolter.AddFail(ModContent.ItemType<CursedSpear>(), 25, hideLootReport: Main.expertMode);
                 npcLoot.Add(postPolter);
             }
@@ -919,7 +947,7 @@ namespace CalRemix
             }
             if (npc.type == ModContent.NPCType<HiveTumor>())
             {
-                npcLoot.AddIf(()=> CalRemixWorld.grimesandToggle, ItemID.DemoniteOre, 1, 10, 26, ui: !CalRemixWorld.grimesandToggle);
+                npcLoot.AddIf(() => CalRemixWorld.grimesandToggle, ItemID.DemoniteOre, 1, 10, 26, ui: !CalRemixWorld.grimesandToggle);
             }
             if (npc.type == ModContent.NPCType<PerforatorCyst>())
             {
@@ -991,7 +1019,7 @@ namespace CalRemix
             if (npc.type == NPCID.GoblinThief)
             {
                 npcLoot.AddNormalOnly(ModContent.ItemType<Warglaive>(), 40, 25, 68);
-                npcLoot.AddIf(()=>Main.expertMode, ModContent.ItemType<Warglaive>(), 20, 37, 120);
+                npcLoot.AddIf(() => Main.expertMode, ModContent.ItemType<Warglaive>(), 20, 37, 120);
             }
             if (npc.type == NPCID.GoblinPeon)
             {
@@ -1034,7 +1062,7 @@ namespace CalRemix
                         if (NPC.CountNPCS(ModContent.NPCType<Ogslime>()) <= 0)
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient)
-                            NPC.NewNPC(npc.GetSource_OnHit(npc), (int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<Ogslime>());
+                                NPC.NewNPC(npc.GetSource_OnHit(npc), (int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<Ogslime>());
                             if (!CalRemixWorld.ogslime)
                             {
                                 CalRemixWorld.ogslime = true;
@@ -1154,7 +1182,7 @@ namespace CalRemix
         public override bool PreKill(NPC npc)
         {
             if (CalRemixWorld.lifeoretoggle)
-            { 
+            {
                 if (!DownedBossSystem.downedRavager && npc.type == ModContent.NPCType<RavagerBody>())
                 {
                     CalamityUtils.SpawnOre(ModContent.TileType<LifeOreTile>(), 0.25E-05, 0.45f, 0.65f, 30, 40);
@@ -1436,17 +1464,17 @@ namespace CalRemix
                     if (segmentType != 0)
                     {
                         if (!Main.npc[(int)npc.ai[1]].active)
-                            {
-                                npc.life = 0;
-                                npc.HitEffect();
-                                npc.checkDead();
-                                npc.active = false;
-                                NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, npc.whoAmI, -1f);
-                                return;
-                            }
+                        {
+                            npc.life = 0;
+                            npc.HitEffect();
+                            npc.checkDead();
+                            npc.active = false;
+                            NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, npc.whoAmI, -1f);
+                            return;
+                        }
                     }
                     if (segmentType == 0)
-                    { 
+                    {
                         if (!Main.npc[(int)npc.ai[0]].active)
                         {
                             npc.life = 0;
