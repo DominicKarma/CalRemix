@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent;
 
@@ -58,6 +59,11 @@ namespace CalRemix.NPCs.Bosses.OldDuke
         }
 
         /// <summary>
+        /// The opacity of the Old Duke's afterimages.
+        /// </summary>
+        public ref float AfterimageOpacity => ref NPC.localAI[2];
+
+        /// <summary>
         /// Executes a single frame of AI for an instance of Old Duke.
         /// </summary>
         public void AI()
@@ -72,6 +78,15 @@ namespace CalRemix.NPCs.Bosses.OldDuke
             }
 
             AITimer++;
+        }
+
+        /// <summary>
+        /// Performs per-frame update resets for the Old Duke, ensuring a default state for certain variables.
+        /// </summary>
+        public void PerformPreUpdateResets()
+        {
+            AfterimageOpacity = 0f;
+            NPC.dontTakeDamage = true;
         }
 
         /// <summary>
@@ -121,6 +136,20 @@ namespace CalRemix.NPCs.Bosses.OldDuke
                 rotation += MathHelper.Pi;
 
             SpriteEffects direction = NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+
+            int afterimageCount = (int)(Utils.GetLerpValue(20f, 100f, NPC.velocity.Length()) * 32f + 8);
+            for (int i = afterimageCount - 1; i >= 1; i--)
+            {
+                float afterimageOpacity = 1f - i / (float)(afterimageCount - 1f);
+                float afterimageIndexFloat = (1f - afterimageOpacity) * 8f;
+                int currentAfterimageIndex = (int)afterimageIndexFloat;
+                int previousAfterimageIndex = currentAfterimageIndex + 1;
+                float afterimageInterpolant = 1f - afterimageIndexFloat % 1f;
+                Color afterimageColor = color * MathF.Pow(afterimageOpacity, 2f) * AfterimageOpacity;
+                Vector2 afterimageDrawPosition = Vector2.Lerp(NPC.oldPos[previousAfterimageIndex], NPC.oldPos[currentAfterimageIndex], afterimageInterpolant) + NPC.Size * 0.5f - screenPos;
+
+                Main.spriteBatch.Draw(texture, afterimageDrawPosition, frame, afterimageColor, rotation, frame.Size() * 0.5f, NPC.scale, direction, 0f);
+            }
 
             Main.spriteBatch.Draw(texture, drawPosition, frame, color, rotation, frame.Size() * 0.5f, NPC.scale, direction, 0f);
         }
