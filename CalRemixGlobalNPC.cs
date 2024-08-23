@@ -1428,8 +1428,6 @@ namespace CalRemix
 
         public static void SetOldDukeDead()
         {
-            return;
-
             CalamityMod.NPCs.CalamityGlobalNPC.SetNewShopVariable(new int[] { ModContent.NPCType<SEAHOE>() }, DownedBossSystem.downedBoomerDuke);
 
             // Mark Old Duke as dead
