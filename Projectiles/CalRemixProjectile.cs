@@ -1,30 +1,28 @@
-﻿using Terraria.ModLoader;
-using CalamityMod;
-using Terraria;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
-using CalRemix.Projectiles.Accessories;
-using CalRemix.Projectiles.Hostile;
-using CalRemix.NPCs.Bosses.Wulfwyrm;
-using CalamityMod.Projectiles.Rogue;
-using CalamityMod.Projectiles.Typeless;
-using CalamityMod.Projectiles.Magic;
-using CalamityMod.Projectiles.Summon;
-using CalamityMod.Projectiles.Melee;
+﻿using CalamityMod;
 using CalamityMod.Buffs.DamageOverTime;
 using CalamityMod.Buffs.StatDebuffs;
-using static Terraria.ModLoader.ModContent;
-using CalRemix.Tiles.PlaguedJungle;
-using System;
-using Terraria.ID;
-using CalRemix.Tiles;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
+using CalamityMod.Projectiles.Magic;
+using CalamityMod.Projectiles.Melee;
+using CalamityMod.Projectiles.Rogue;
+using CalamityMod.Projectiles.Summon;
+using CalamityMod.Projectiles.Typeless;
 using CalRemix.NPCs.Bosses.Oxygen;
-using Terraria.Audio;
+using CalRemix.NPCs.Bosses.Wulfwyrm;
+using CalRemix.Projectiles.Accessories;
+using CalRemix.Projectiles.Hostile;
+using CalRemix.Tiles;
+using CalRemix.Tiles.PlaguedJungle;
 using CalRemix.World;
-using CalamityMod.Items.Weapons.Melee;
-using CalRemix.Retheme;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CalRemix.Projectiles
 {
@@ -80,7 +78,7 @@ namespace CalRemix.Projectiles
             }
             if (ModLoader.TryGetMod("NoxusBoss", out Mod nox))
             {
-                int noxType = nox.Find<ModProjectile>("NoxusSprayerGas").Type;
+                int noxType = nox.Find<ModProjectile>("EmptinessSprayerGas").Type;
                 int i = (int)(projectile.position.X + projectile.width / 2) / 16;
                 int j = (int)(projectile.position.Y + projectile.height / 2) / 16;
                 if (projectile.type == noxType)
