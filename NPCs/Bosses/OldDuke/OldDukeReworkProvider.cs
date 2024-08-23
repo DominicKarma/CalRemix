@@ -49,6 +49,15 @@ namespace CalRemix.NPCs.Bosses.OldDuke
         }
 
         /// <summary>
+        /// Whether background visuals should be created by the Old Duke or not.
+        /// </summary>
+        public bool UseBackgroundVisuals
+        {
+            get => NPC.localAI[1] == 1f;
+            set => NPC.localAI[1] = value.ToInt();
+        }
+
+        /// <summary>
         /// Executes a single frame of AI for an instance of Old Duke.
         /// </summary>
         public void AI()
@@ -58,6 +67,7 @@ namespace CalRemix.NPCs.Bosses.OldDuke
             switch (CurrentState)
             {
                 case OldDukeAIState.SpawnAnimation:
+                    DoBehavior_SpawnAnimation();
                     break;
             }
 

@@ -7,7 +7,7 @@
         /// </summary>
         public void DoBehavior_SpawnAnimation()
         {
-
+            UseBackgroundVisuals = AITimer >= 150;
         }
     }
 }
